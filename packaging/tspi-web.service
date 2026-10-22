@@ -1,0 +1,15 @@
+[Unit]
+Description=TSPI 1M web configuration (USB network only)
+Documentation=https://wiki.lckfb.com/
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -u /usr/local/sbin/tspi-web.py
+Environment=PYTHONUNBUFFERED=1
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
